@@ -18,6 +18,6 @@ exports.getCoins=async function(req,res){
         a.push(uniqueName)
     }  
     await coinModel.deleteMany({_id: { $nin: a.map((i) => i._id), },})
-    return res.status(200).json({status:true,msg:data})}
+    return res.status(200).json({status:true,msg:a})}
     catch (error) {return res.status(500).send({msg:error.message})
 }}
